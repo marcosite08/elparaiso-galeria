@@ -93,4 +93,4 @@ deployment.  Once it is done, Go to settings tab again and scroll down to the Gi
 * This project was using Travis CI Initially, Migrated to Github Actions for better speed and reliabilty. Travis stopped providing free unlimited builds for open source projects.
 
 ## Contributing
-Feel free to make any changes and submit a PR.
+Feel free to make any changes and submit a PR. V2
