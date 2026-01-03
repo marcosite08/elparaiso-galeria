@@ -4,10 +4,10 @@
   "title": "Catálogo Materiales El Paraíso",
   "sort-albums-by": "title",
   "sort-media-by": "filename",
-  "download-photos": "copy",
+  "photo-download": "copy",
+  "album-zip-files": true,
   "cleanup": true,
   "theme": "cards",
-  "css": "./custom.css",
   "footer": "© 2026 Materiales El Paraíso",
   "usage-stats": false
 }
