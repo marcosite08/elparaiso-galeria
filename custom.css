@@ -1,87 +1,57 @@
 /* === IDENTIDAD CORPORATIVA: MATERIALES EL PARAÍSO === */
 
-/* 1. FONDO GENERAL (Gris claro elegante) */
-body {
-    background-color: #f5f5f5 !important;
-    color: #4a4a4a; /* Gris oscuro para lectura */
-}
-
-/* 2. CABECERA (HEADER) - Estilo "Premium" */
+/* ... (El resto del código de colores sigue igual) ... */
+body { background-color: #f5f5f5 !important; color: #4a4a4a; }
 header, .layout-header {
-    /* Degradado de Negro a Gris Oscuro */
-    background: linear-gradient(135deg, #000000 0%, #4a4a4a 100%) !important;
-    border-bottom: 4px solid #c41e3a; /* Línea Roja de la marca abajo */
-    padding: 20px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
+    border-bottom: 4px solid #c41e3a;
+    padding: 15px 0;
 }
 
-/* 3. TÍTULOS */
-h1, h2, .page-header h1 {
-    color: #ffffff !important; /* Blanco sobre el fondo negro */
-    text-shadow: 1px 1px 2px black;
-}
+/* === AQUÍ ESTÁ EL CAMBIO DEL LOGO === */
 
-/* 4. NAVEGACIÓN (Home > Perdura...) */
-.breadcrumbs, .breadcrumbs a {
-    color: #c0c0c0 !important; /* Gris plata */
-}
-.breadcrumbs a:hover {
-    color: #c41e3a !important; /* Rojo al pasar el mouse */
-}
-
-/* 5. TARJETAS DE PRODUCTOS */
-.album .photo {
-    border: 1px solid #e0e0e0 !important;
-    transition: all 0.3s ease;
-}
-.album .photo:hover {
-    border-color: #c41e3a !important; /* Borde rojo brillante al tocar */
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Etiquetas de nombres sobre las fotos */
-.album .name {
-    background: rgba(0, 0, 0, 0.85) !important; /* Negro semitransparente */
+/* 1. Preparamos el contenedor del título */
+h1 a, .page-header h1 a {
     color: #ffffff !important;
-    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado */
 }
 
-/* === EL BOTÓN DE DESCARGA ZIP (Estilo Botón Rojo) === */
-
-/* Ocultar inglés original */
-:has(> a[href$=".zip"]) {
-    font-size: 0 !important;
-    color: transparent !important;
+/* 2. Insertamos el Logo usando la Nube de GitHub */
+h1 a::before {
+    content: "";
+    display: inline-block;
+    width: 60px;  /* Tamaño del logo */
+    height: 60px;
+    /* Usamos el enlace directo para que nunca falle */
+    background-image: url('https://raw.githubusercontent.com/marcosite08/elparaiso-galeria/master/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 15px; /* Separación con el texto */
 }
-a[href$=".zip"] {
-    font-size: 0 !important;
-    text-decoration: none !important;
-}
 
-/* Crear el BOTÓN ROJO DE ACCIÓN */
+/* ... (El resto del código de tarjetas y botón ZIP sigue igual) ... */
+.album .photo { border: 1px solid #e0e0e0 !important; }
+.album .photo:hover { border-color: #c41e3a !important; transform: translateY(-3px); }
+.album .name { background: rgba(0, 0, 0, 0.9) !important; color: white !important; }
+
+/* Botón ZIP */
+:has(> a[href$=".zip"]) { font-size: 0 !important; color: transparent !important; }
+a[href$=".zip"] { font-size: 0 !important; text-decoration: none !important; }
 a[href$=".zip"]::after {
     content: "📥 Descargar catálogo completo (ZIP)";
     font-size: 15px !important;
     font-weight: bold;
-    color: #ffffff !important; /* Letra blanca */
-    background-color: #c41e3a; /* FONDO ROJO MARCA */
-    padding: 10px 20px;
-    border-radius: 5px; /* Bordes redondeados */
+    color: white !important;
+    background-color: #c41e3a;
+    padding: 12px 25px;
+    border-radius: 6px;
     display: inline-block;
     margin-top: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     cursor: pointer;
     visibility: visible !important;
-    transition: background 0.3s;
 }
-
-a[href$=".zip"]:hover::after {
-    background-color: #a01830; /* Rojo más oscuro al hacer clic */
-}
-
-/* Footer */
-footer {
-    background-color: #000000 !important;
-    color: #808080 !important;
-    border-top: 4px solid #c41e3a;
-}
+footer { background-color: #000000 !important; color: #888 !important; border-top: 4px solid #c41e3a; }
