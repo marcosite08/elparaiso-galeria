@@ -1,12 +1,23 @@
-/* Ocultamos el texto en inglés */
-a[href$=".zip"] {
+/* === CORRECCIÓN MAESTRA PARA ZIP === */
+
+/* 1. Buscamos CUALQUIER elemento que contenga el link del zip */
+:has(> a[href$=".zip"]) {
     font-size: 0 !important;
+    color: transparent !important;
 }
 
-/* Escribimos el español encima */
+/* 2. Aseguramos que el link original tampoco se vea */
+a[href$=".zip"] {
+    font-size: 0 !important;
+    text-decoration: none !important;
+}
+
+/* 3. Resucitamos SOLO el nuevo texto en español */
 a[href$=".zip"]::after {
     content: "Descargar álbum como archivo zip";
-    font-size: 16px;
-    color: #0366d6;
+    font-size: 16px !important;
+    color: #0366d6 !important;
     text-decoration: underline;
+    visibility: visible !important;
+    display: inline-block;
 }
