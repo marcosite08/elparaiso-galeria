@@ -8,6 +8,7 @@
   "album-zip-files": true,
   "cleanup": true,
   "theme": "cards",
+  "css": "./custom.css",
   "locale": "es",
   "footer": "© 2026 Materiales El Paraíso",
   "usage-stats": false
