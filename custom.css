@@ -1,46 +1,52 @@
-/* === IDENTIDAD CORPORATIVA: MATERIALES EL PARAÍSO === */
+/* === IDENTIDAD CORPORATIVA: MATERIALES EL PARAÍSO (VERSIÓN FINAL) === */
 
-/* ... (El resto del código de colores sigue igual) ... */
-body { background-color: #f5f5f5 !important; color: #4a4a4a; }
+/* 1. Fondo General */
+body {
+    background-color: #f5f5f5 !important;
+    color: #4a4a4a;
+}
+
+/* 2. Cabecera (Header) */
 header, .layout-header {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
     border-bottom: 4px solid #c41e3a;
     padding: 15px 0;
 }
 
-/* === AQUÍ ESTÁ EL CAMBIO DEL LOGO === */
-
-/* 1. Preparamos el contenedor del título */
+/* 3. LOGO Y TÍTULO */
 h1 a, .page-header h1 a {
     color: #ffffff !important;
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrado */
+    justify-content: center;
 }
 
-/* 2. Insertamos el Logo usando la Nube de GitHub */
+/* Inserta tu logo desde la raíz */
 h1 a::before {
     content: "";
     display: inline-block;
-    width: 60px;  /* Tamaño del logo */
-    height: 60px;
-    /* Usamos el enlace directo para que nunca falle */
+    width: 50px;
+    height: 50px;
     background-image: url('https://raw.githubusercontent.com/marcosite08/elparaiso-galeria/master/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 15px; /* Separación con el texto */
+    margin-right: 15px;
 }
 
-/* ... (El resto del código de tarjetas y botón ZIP sigue igual) ... */
+/* 4. Tarjetas y Navegación */
+.breadcrumbs, .breadcrumbs a { color: #cccccc !important; }
+.breadcrumbs a:hover { color: #c41e3a !important; }
+
 .album .photo { border: 1px solid #e0e0e0 !important; }
 .album .photo:hover { border-color: #c41e3a !important; transform: translateY(-3px); }
 .album .name { background: rgba(0, 0, 0, 0.9) !important; color: white !important; }
 
-/* Botón ZIP */
+/* 5. Botón ZIP Rojo */
 :has(> a[href$=".zip"]) { font-size: 0 !important; color: transparent !important; }
 a[href$=".zip"] { font-size: 0 !important; text-decoration: none !important; }
+
 a[href$=".zip"]::after {
     content: "📥 Descargar catálogo completo (ZIP)";
     font-size: 15px !important;
@@ -51,7 +57,19 @@ a[href$=".zip"]::after {
     border-radius: 6px;
     display: inline-block;
     margin-top: 15px;
-    cursor: pointer;
     visibility: visible !important;
 }
-footer { background-color: #000000 !important; color: #888 !important; border-top: 4px solid #c41e3a; }
+
+/* === 6. CORRECCIÓN DEL FOOTER (PIE DE PÁGINA) === */
+footer {
+    background-color: #000000 !important; /* Fondo Negro Puro */
+    color: #ffffff !important;           /* Texto Blanco Brillante */
+    border-top: 4px solid #c41e3a;       /* Línea roja arriba */
+    padding: 20px 0;
+}
+
+/* Asegura que cualquier enlace o texto dentro del footer también sea blanco */
+footer a, footer p {
+    color: #ffffff !important;
+    opacity: 1 !important; /* Quitamos transparencias */
+}
