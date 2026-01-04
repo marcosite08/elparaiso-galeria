@@ -1,12 +1,12 @@
-/* === IDENTIDAD CORPORATIVA: MATERIALES EL PARAÍSO (VERSIÓN ELEGANTE) === */
+/* === IDENTIDAD CORPORATIVA: MATERIALES EL PARAÍSO (VERSIÓN FINAL) === */
 
-/* 1. Fondo General */
+/* 1. CONFIGURACIÓN GENERAL */
 body {
     background-color: #f5f5f5 !important;
     color: #4a4a4a;
 }
 
-/* 2. Cabecera (Header) */
+/* 2. CABECERA (HEADER) */
 header, .layout-header {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
     border-bottom: 4px solid #c41e3a;
@@ -21,7 +21,6 @@ h1 a, .page-header h1 a {
     align-items: center;
     justify-content: center;
 }
-
 /* Logo desde la raíz */
 h1 a::before {
     content: "";
@@ -35,32 +34,18 @@ h1 a::before {
     margin-right: 15px;
 }
 
-/* === 4. MIGAS DE PAN (BREADCRUMBS) - GRIS OBSCURO ELEGANTE === */
-.breadcrumbs {
-    color: #777777 !important; /* Las barritas "/" en gris suave */
-    font-weight: normal;
-}
+/* 4. MIGAS DE PAN (Gris Elegante) */
+.breadcrumbs { color: #777777 !important; font-weight: normal; }
+.breadcrumbs a { color: #333333 !important; font-weight: 600; text-decoration: none; }
+.breadcrumbs a:hover { color: #c41e3a !important; text-decoration: underline; }
 
-.breadcrumbs a {
-    color: #333333 !important; /* <--- AQUÍ ESTÁ: Gris Carbón Elegante (No negro) */
-    font-weight: 600;           /* Un poco menos grueso que antes, más fino */
-    text-decoration: none;      /* Sin subrayado para que se vea más limpio */
-}
-
-.breadcrumbs a:hover {
-    color: #c41e3a !important; /* Rojo al pasar el mouse */
-    text-decoration: underline;
-}
-
-/* 5. Tarjetas */
+/* 5. TARJETAS (DISEÑO BASE) */
 .album .photo { border: 1px solid #e0e0e0 !important; }
-.album .photo:hover { border-color: #c41e3a !important; transform: translateY(-3px); }
 .album .name { background: rgba(0, 0, 0, 0.9) !important; color: white !important; }
 
-/* 6. Botón ZIP Rojo */
+/* 6. BOTÓN ZIP ROJO */
 :has(> a[href$=".zip"]) { font-size: 0 !important; color: transparent !important; }
 a[href$=".zip"] { font-size: 0 !important; text-decoration: none !important; }
-
 a[href$=".zip"]::after {
     content: "📥 Descargar catálogo completo (ZIP)";
     font-size: 15px !important;
@@ -74,14 +59,50 @@ a[href$=".zip"]::after {
     visibility: visible !important;
 }
 
-/* 7. Footer */
+/* 7. FOOTER */
 footer {
     background-color: #000000 !important;
     color: #ffffff !important;
     border-top: 4px solid #c41e3a;
     padding: 20px 0;
 }
-footer a, footer p {
-    color: #ffffff !important;
-    opacity: 1 !important;
+footer a, footer p { color: #ffffff !important; opacity: 1 !important; }
+
+
+/* === 8. SUPER OPTIMIZACIÓN MÓVIL (GRID SYSTEM) === */
+/* Aquí está la magia para aprovechar el espacio que marcaste */
+@media screen and (max-width: 768px) {
+    
+    /* A. Reducimos el margen general de la página para ganar espacio */
+    .container {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* B. Activamos la Cuadrícula Moderna (GRID) */
+    /* Aplica tanto para carpetas (.albums) como para fotos (#media) */
+    .albums, #media {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 2 columnas exactas */
+        gap: 8px !important; /* Espacio pequeñito entre fotos */
+        padding: 0 !important; /* Cero relleno extra */
+        margin: 0 !important;
+    }
+
+    /* C. Forzamos a cada tarjeta a ocupar su celda completa */
+    .album, #media li {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* D. Ajuste de las fotos internas para que no se deformen */
+    .album .photo, #media li a {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
 }
