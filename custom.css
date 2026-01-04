@@ -1,12 +1,11 @@
-/* === IDENTIDAD CORPORATIVA + EXPANSIÓN TOTAL (MÓVIL Y ESCRITORIO) === */
+/* === IDENTIDAD CORPORATIVA + EXPANSIÓN TOTAL (MÓVIL Y PC) === */
 
 /* 1. LIMPIEZA GENERAL */
 body {
     background-color: #f5f5f5 !important;
     color: #4a4a4a;
-    margin: 0 !important;
+    margin: 0 !important; /* Sin márgenes en los bordes de la ventana */
     padding: 0 !important;
-    overflow-x: hidden; /* Evita scroll horizontal accidental */
 }
 
 ul {
@@ -19,7 +18,7 @@ header, .layout-header {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
     border-bottom: 4px solid #c41e3a;
     padding: 15px 0;
-    width: 100% !important; /* La barra negra siempre ocupa todo */
+    width: 100% !important; /* Asegurar que la barra negra cubra todo */
 }
 
 /* 3. LOGO Y TÍTULO */
@@ -79,7 +78,9 @@ footer {
 footer a, footer p { color: #ffffff !important; opacity: 1 !important; }
 
 
-/* === 8. ZONA MÓVIL (YA ESTÁ PERFECTA, NO TOCAR) === */
+/* === 8. ZONA DE EXPANSIÓN (AQUÍ ESTÁ EL CAMBIO) === */
+
+/* MÓVIL (Tu diseño perfecto actual) */
 @media screen and (max-width: 768px) {
     .container, main, .content {
         padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important;
@@ -94,26 +95,27 @@ footer a, footer p { color: #ffffff !important; opacity: 1 !important; }
     h1, .breadcrumbs { padding-left: 10px !important; padding-right: 10px !important; }
 }
 
-
-/* === 9. ZONA ESCRITORIO (FULL WIDTH - CÓDIGO NUEVO) === */
+/* ESCRITORIO (LA CORRECCIÓN "FULL WIDTH") */
 @media screen and (min-width: 769px) {
     
-    /* Rompemos el candado de ancho fijo */
-    .container, main, .content, div[role="main"] {
-        width: 98% !important;       /* Ocupar el 98% de la pantalla */
-        max-width: 98% !important;   /* Forzar que no haya límite máximo */
-        margin: 0 auto !important;   /* Centrado */
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    /* 1. Obligamos al contenedor a usar el 98% del ancho de la pantalla */
+    /* Antes tenía un límite de 960px o 1140px, aquí lo rompemos */
+    .container, div[role="main"], #content, .content {
+        width: 98% !important;      /* Ancho casi total */
+        max-width: 100% !important; /* Quitar límite máximo */
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+        margin: 0 auto !important;
     }
-    
-    /* Aseguramos que la cuadrícula de fotos también se estire */
+
+    /* 2. Ajustamos la cuadrícula de fotos para que llene ese espacio nuevo */
     .albums, #media {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;    /* Usar Flexbox para acomodar mejor */
+        display: flex !important;
         flex-wrap: wrap !important;
-        gap: 15px !important;
-        justify-content: flex-start !important;
+        justify-content: flex-start !important; /* Alineado a la izquierda */
+        gap: 15px !important; /* Espacio entre fotos */
     }
+
+    /* Opcional: Si quieres que las fotos en PC sean un poco más grandes */
+    /* .album, #media li { width: 300px !important; } */
 }
