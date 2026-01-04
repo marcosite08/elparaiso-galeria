@@ -1,24 +1,22 @@
-/* === IDENTIDAD CORPORATIVA + EXPANSIÓN TOTAL (MÓVIL Y PC) === */
+/* === IDENTIDAD CORPORATIVA + FULL WIDTH REAL (ID FIXED) === */
 
 /* 1. LIMPIEZA GENERAL */
 body {
     background-color: #f5f5f5 !important;
     color: #4a4a4a;
-    margin: 0 !important; /* Sin márgenes en los bordes de la ventana */
+    margin: 0 !important;
     padding: 0 !important;
+    overflow-x: hidden;
 }
 
-ul {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
+ul { padding-left: 0 !important; margin-left: 0 !important; }
 
-/* 2. CABECERA (HEADER) */
+/* 2. HEADER (Cabecera) */
 header, .layout-header {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
     border-bottom: 4px solid #c41e3a;
     padding: 15px 0;
-    width: 100% !important; /* Asegurar que la barra negra cubra todo */
+    width: 100% !important;
 }
 
 /* 3. LOGO Y TÍTULO */
@@ -29,7 +27,6 @@ h1 a, .page-header h1 a {
     align-items: center;
     justify-content: center;
 }
-/* Logo desde la raíz */
 h1 a::before {
     content: "";
     display: inline-block;
@@ -42,16 +39,16 @@ h1 a::before {
     margin-right: 15px;
 }
 
-/* 4. MIGAS DE PAN (Gris Elegante) */
+/* 4. MIGAS DE PAN */
 .breadcrumbs { color: #777777 !important; font-weight: normal; }
 .breadcrumbs a { color: #333333 !important; font-weight: 600; text-decoration: none; }
 .breadcrumbs a:hover { color: #c41e3a !important; text-decoration: underline; }
 
-/* 5. TARJETAS (DISEÑO BASE) */
+/* 5. TARJETAS */
 .album .photo { border: 1px solid #e0e0e0 !important; }
 .album .name { background: rgba(0, 0, 0, 0.9) !important; color: white !important; }
 
-/* 6. BOTÓN ZIP ROJO */
+/* 6. BOTÓN ZIP */
 :has(> a[href$=".zip"]) { font-size: 0 !important; color: transparent !important; }
 a[href$=".zip"] { font-size: 0 !important; text-decoration: none !important; }
 a[href$=".zip"]::after {
@@ -77,45 +74,36 @@ footer {
 }
 footer a, footer p { color: #ffffff !important; opacity: 1 !important; }
 
-
-/* === 8. ZONA DE EXPANSIÓN (AQUÍ ESTÁ EL CAMBIO) === */
-
-/* MÓVIL (Tu diseño perfecto actual) */
+/* === 8. ZONA MÓVIL (Perfecta) === */
 @media screen and (max-width: 768px) {
-    .container, main, .content {
-        padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important;
-    }
-    .albums, #media {
-        display: grid !important; grid-template-columns: 1fr 1fr !important;
-        gap: 6px !important; padding: 4px !important; margin: 0 !important; width: 100% !important;
-        box-sizing: border-box !important;
-    }
+    #container, .container, main, .content { padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; }
+    .albums, #media { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px !important; padding: 4px !important; margin: 0 !important; width: 100% !important; box-sizing: border-box !important; }
     .album, #media li { width: 100% !important; margin: 0 !important; padding: 0 !important; }
     .album .photo, #media li a, #media li img { width: 100% !important; height: auto !important; display: block; }
     h1, .breadcrumbs { padding-left: 10px !important; padding-right: 10px !important; }
 }
 
-/* ESCRITORIO (LA CORRECCIÓN "FULL WIDTH") */
+/* === 9. ZONA ESCRITORIO (FRANCOTIRADOR ID) === */
 @media screen and (min-width: 769px) {
     
-    /* 1. Obligamos al contenedor a usar el 98% del ancho de la pantalla */
-    /* Antes tenía un límite de 960px o 1140px, aquí lo rompemos */
-    .container, div[role="main"], #content, .content {
-        width: 98% !important;      /* Ancho casi total */
-        max-width: 100% !important; /* Quitar límite máximo */
-        padding-left: 1% !important;
-        padding-right: 1% !important;
-        margin: 0 auto !important;
+    /* Atacamos el ID específico que encontraste en el código */
+    #container {
+        width: 98% !important;       /* ¡ORDEN DIRECTA DEL GENERAL! */
+        max-width: none !important;  /* Romper cualquier límite anterior */
+        margin: 0 auto !important;   /* Centrado */
+        padding: 0 !important;
     }
 
-    /* 2. Ajustamos la cuadrícula de fotos para que llene ese espacio nuevo */
-    .albums, #media {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-start !important; /* Alineado a la izquierda */
-        gap: 15px !important; /* Espacio entre fotos */
+    /* Atacamos la lista específica */
+    #media, .albums {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;      /* Flexbox para acomodar bonito */
+        flex-wrap: wrap !important;    /* Si no caben, bajan */
+        justify-content: center !important; /* Centrado en la pantalla grande */
+        gap: 15px !important;
     }
 
-    /* Opcional: Si quieres que las fotos en PC sean un poco más grandes */
-    /* .album, #media li { width: 300px !important; } */
+    /* Opcional: Si quieres que las fotos no sean gigantes, limita su tamaño individual aquí */
+    /* #media li { max-width: 300px; } */
 }
