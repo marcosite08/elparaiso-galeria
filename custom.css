@@ -1,4 +1,4 @@
-/* === IDENTIDAD CORPORATIVA + FULL WIDTH REAL (ID FIXED) === */
+/* === IDENTIDAD CORPORATIVA + ÁLBUMES Y FOTOS PERFECTOS (PC Y MÓVIL) === */
 
 /* 1. LIMPIEZA GENERAL */
 body {
@@ -8,10 +8,9 @@ body {
     padding: 0 !important;
     overflow-x: hidden;
 }
-
 ul { padding-left: 0 !important; margin-left: 0 !important; }
 
-/* 2. HEADER (Cabecera) */
+/* 2. HEADER */
 header, .layout-header {
     background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%) !important;
     border-bottom: 4px solid #c41e3a;
@@ -44,7 +43,7 @@ h1 a::before {
 .breadcrumbs a { color: #333333 !important; font-weight: 600; text-decoration: none; }
 .breadcrumbs a:hover { color: #c41e3a !important; text-decoration: underline; }
 
-/* 5. TARJETAS */
+/* 5. TARJETAS (ESTILO VISUAL) */
 .album .photo { border: 1px solid #e0e0e0 !important; }
 .album .name { background: rgba(0, 0, 0, 0.9) !important; color: white !important; }
 
@@ -74,36 +73,63 @@ footer {
 }
 footer a, footer p { color: #ffffff !important; opacity: 1 !important; }
 
-/* === 8. ZONA MÓVIL (Perfecta) === */
+/* =========================================================
+   8. ZONA MÓVIL (¡AQUÍ AGREGUÉ LOS ÁLBUMES!)
+   ========================================================= */
 @media screen and (max-width: 768px) {
-    #container, .container, main, .content { padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; }
-    .albums, #media { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 6px !important; padding: 4px !important; margin: 0 !important; width: 100% !important; box-sizing: border-box !important; }
-    .album, #media li { width: 100% !important; margin: 0 !important; padding: 0 !important; }
-    .album .photo, #media li a, #media li img { width: 100% !important; height: auto !important; display: block; }
+    #container, .container, main, .content { 
+        padding: 0 !important; margin: 0 !important; width: 100% !important; max-width: 100% !important; 
+    }
+
+    /* APLICAMOS GRID A LAS FOTOS (#media) Y A LOS ÁLBUMES (#albums) */
+    #media, #albums { 
+        display: grid !important; 
+        grid-template-columns: 1fr 1fr !important; /* 2 columnas */
+        gap: 6px !important; 
+        padding: 4px !important; 
+        margin: 0 !important; 
+        width: 100% !important; 
+        box-sizing: border-box !important; 
+    }
+
+    /* Que las tarjetas ocupen toda la celda */
+    #media li, #albums a { 
+        width: 100% !important; 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+
+    /* Ajuste de imágenes */
+    #media li a, #media li img, .album .photo { width: 100% !important; height: auto !important; display: block; }
     h1, .breadcrumbs { padding-left: 10px !important; padding-right: 10px !important; }
 }
 
-/* === 9. ZONA ESCRITORIO (FRANCOTIRADOR ID) === */
+/* =========================================================
+   9. ZONA ESCRITORIO (LA SOLUCIÓN DE LA OTRA IA + MI TOQUE)
+   ========================================================= */
 @media screen and (min-width: 769px) {
     
-    /* Atacamos el ID específico que encontraste en el código */
     #container {
-        width: 98% !important;       /* ¡ORDEN DIRECTA DEL GENERAL! */
-        max-width: none !important;  /* Romper cualquier límite anterior */
-        margin: 0 auto !important;   /* Centrado */
+        width: 98% !important;
+        max-width: none !important;
+        margin: 0 auto !important;
         padding: 0 !important;
     }
 
-    /* Atacamos la lista específica */
-    #media, .albums {
+    /* AQUÍ ESTÁ LA CLAVE: #albums y #media con FLEXBOX */
+    #media, #albums {
         width: 100% !important;
         max-width: 100% !important;
-        display: flex !important;      /* Flexbox para acomodar bonito */
-        flex-wrap: wrap !important;    /* Si no caben, bajan */
-        justify-content: center !important; /* Centrado en la pantalla grande */
-        gap: 15px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important; /* Centrados */
+        gap: 20px !important;
     }
-
-    /* Opcional: Si quieres que las fotos no sean gigantes, limita su tamaño individual aquí */
-    /* #media li { max-width: 300px; } */
+    
+    /* Para que las carpetas no se vean muy flacas en PC */
+    #albums a {
+        min-width: 300px;
+    }
 }
