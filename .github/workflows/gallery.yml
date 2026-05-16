@@ -17,11 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses:  actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Build Gallery 🔧
         run: docker run -v "$(pwd):/work" ghcr.io/thumbsup/thumbsup /bin/sh -c "cd /work/ && thumbsup --config config.json"
+      - name: Inject custom script 💉
+        run: |
+          cp custom-lg.js build_output/
+          find ./build_output -name "*.html" -exec sed -i 's|</body>|<script src="custom-lg.js"></script></body>|g' {} +
       - name: Package and upload artifact 📦
         uses: actions/upload-pages-artifact@v3
         with:
